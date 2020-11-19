@@ -1,0 +1,38 @@
+html {
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+body,
+pre {
+  margin: 0;
+}
+
+body,
+.flexbox-container {
+  height: 100%;
+}
+
+.flexbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexbox-item {
+  min-height: 146px;
+  padding: 1em;
+  color: #4a4a4a;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
+
+  line-height: 1.5;
+  display: flex;
+  place-items: center;
+  border-radius: 4px;
+}
+
+#message {
+  font-size: 1.4rem;
+  font-family: auto;
+}
