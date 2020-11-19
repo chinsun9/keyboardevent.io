@@ -7,10 +7,10 @@ document.addEventListener(
     const { key, altKey, code, ctrlKey, keyCode, shiftKey } = event;
     const key_info = {
       key,
-      altKey,
+      keyCode,
       code,
       ctrlKey,
-      keyCode,
+      altKey,
       shiftKey,
     };
 
