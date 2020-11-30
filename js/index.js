@@ -4,6 +4,7 @@ const message_span = document.querySelector("#message");
 document.addEventListener(
   "keydown",
   (event) => {
+    event.preventDefault()
     const { key, altKey, code, ctrlKey, keyCode, shiftKey } = event;
     const key_info = {
       key,
