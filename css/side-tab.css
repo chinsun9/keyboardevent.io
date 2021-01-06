@@ -1,19 +1,18 @@
 /* side tab */
-
 .sidetab {
-  color: rgba(0, 0, 0, 0.9);
-  font-size: 34px;
-  left: 0;
-  width: 50px;
-  z-index: 100;
   position: fixed;
   top: 0;
+  left: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  width: 50px;
 
   height: 100%;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 34px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .sidetab a {
