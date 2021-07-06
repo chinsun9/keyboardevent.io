@@ -4,18 +4,21 @@ const message_span = document.querySelector("#message");
 document.addEventListener(
   "keydown",
   (event) => {
-    event.preventDefault()
-    const { key, altKey, code, ctrlKey, keyCode, shiftKey } = event;
-    const key_info = {
+    event.preventDefault();
+    const { key, altKey, code, ctrlKey, shiftKey } = event;
+    const keyInfo = {
       key,
-      keyCode,
       code,
       ctrlKey,
       altKey,
       shiftKey,
     };
 
-    message_span.innerHTML = JSON.stringify(key_info, null, 2);
+    if (key.length === 1) {
+      keyInfo["asciiCode"] = key.charCodeAt(0);
+    }
+
+    message_span.innerHTML = JSON.stringify(keyInfo, null, 2);
   },
   false
 );
