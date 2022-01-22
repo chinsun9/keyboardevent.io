@@ -74,7 +74,7 @@ body,
 }
 
 .sidetab a:hover {
-  filter: invert(-20%);
+  filter: invert(40%);
 }
 
 @media (max-width: 350px) {
