@@ -1,6 +1,23 @@
+:root {
+  color-scheme: light;
+  --color0: #ffffff;
+  --color1: #f7f7f7;
+  --color2: #d3d3d3;
+  --text-color: #4a4a4a;
+}
+
+:root[data-color-scheme='dark'] {
+  color-scheme: dark;
+  --color0: #1c1c1c;
+  --color1: #1f1f1f;
+  --color2: #424242;
+  --text-color: #bfbfbf;
+}
+
 html {
   height: 100vh;
-  background-color: #f7f7f7;
+  font-size: 10px;
+  color: var(--text-color);
 }
 
 body,
@@ -16,23 +33,23 @@ body,
 .flexbox-container {
   display: grid;
   place-items: center;
+  background-color: var(--color1);
 }
 
 .flexbox-item {
   display: flex;
-  min-height: 146px;
-  padding: 1em;
-  color: #4a4a4a;
-  line-height: 1.5;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
   place-items: center;
+  min-height: 150px;
+  padding: 1rem 2rem;
+  border: 1px solid var(--color2);
+  border-radius: 4px;
+  background-color: var(--color0);
 }
 
 #message {
-  font-size: 1.4rem;
-  font-family: auto;
+  font-size: 2rem;
+  font-family: sans-serif;
+  line-height: 1.5;
 }
 
 /* side tab */
@@ -41,24 +58,22 @@ body,
   top: 0;
   left: 0;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   width: 50px;
-
   height: 100%;
-  color: rgba(0, 0, 0, 0.9);
-  font-size: 34px;
-  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 3rem;
+  background-color: var(--color2);
 }
 
 .sidetab a {
-  color: #555;
-  transition: color 150ms;
+  all: unset;
+  cursor: pointer;
+  transition: filter 0.5s ease;
 }
 
 .sidetab a:hover {
-  color: #000;
+  filter: invert(-20%);
 }
 
 @media (max-width: 350px) {
