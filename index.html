@@ -6,9 +6,35 @@
     <title>KeyboardEvent.io</title>
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/chinsun9/chinsun9.github.io@master/img/favicon-bold-color201202.svg?">
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/sideTab.css" />
+    <script>
+      const STORAGE_THEME_KEY = 'darkTheme';
+      const HTML_THEME_DATASET_KEY = 'data-color-scheme';
+      const HTML = document.documentElement;
+
+      const getJsonFromStorage = (key) => JSON.parse(localStorage.getItem(key));
+
+      const updateTheme = (isDark) => {
+        localStorage.setItem(STORAGE_THEME_KEY, isDark);
+        HTML.setAttribute(HTML_THEME_DATASET_KEY, isDark ? 'dark' : 'light');
+      };
+
+      const initTheme = () => {
+        const isDark =
+          getJsonFromStorage(STORAGE_THEME_KEY) ??
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        updateTheme(isDark);
+      };
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+          const isDark = e.matches;
+          updateTheme(isDark);
+        });
+
+      initTheme();
+    </script>
     <script src="./js/index.js" defer></script>
-    <script src="./js/sideTab.js" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -20,9 +46,8 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
-
-      gtag("config", "G-1ZBS3DBDQQ");
+      gtag('js', new Date());
+      gtag('config', 'G-1ZBS3DBDQQ');
     </script>
   </head>
   <body>
@@ -34,11 +59,10 @@
 
     <div class="sidetab">
       <div class="sideItem">
-        <a href="#" target="_blank">
+        <a href="https://github.com/chinsun9/keyboardevent.io/" target="_blank">
           <svg
             viewBox="64 64 896 896"
             focusable="false"
-            class=""
             data-icon="github"
             width="1em"
             height="1em"
