@@ -1,9 +1,11 @@
-"use strict";
-const message_span = document.querySelector("#message");
+'use strict';
+let currentKeyValue = '';
+const messageElement = document.querySelector('#message');
 
 document.addEventListener(
-  "keydown",
+  'keydown',
   (event) => {
+    if (event.key === 'F12') return;
     event.preventDefault();
     const { key, altKey, code, ctrlKey, shiftKey } = event;
     const keyInfo = {
@@ -12,13 +14,16 @@ document.addEventListener(
       ctrlKey,
       altKey,
       shiftKey,
+      asciiCode: key.length === 1 ? key.charCodeAt(0) : undefined,
     };
 
-    if (key.length === 1) {
-      keyInfo["asciiCode"] = key.charCodeAt(0);
-    }
-
-    message_span.innerHTML = JSON.stringify(keyInfo, null, 2);
+    messageElement.innerHTML = JSON.stringify(keyInfo, null, 2);
+    currentKeyValue = keyInfo.key;
   },
   false
 );
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.flexbox-item')) return;
+  navigator.clipboard.writeText(currentKeyValue);
+});
